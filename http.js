@@ -18,7 +18,7 @@ app.router.get('/api/token', tokencontroller.getToken);
 app.router.get('/api/post', postcontroller.getPosts);
 app.router.get('/api/post/:uid', postcontroller.getPosts);
 app.router.post('/api/post', postcontroller.writePost);
-app.router.delete('/api/post/:id', postcontroller.deleteetePost);
+app.router.delete('/api/post/:id', postcontroller.deletePost);
 app.router.get('/api/rpost/:id', postcontroller.getPostById);
 app.router.put('/api/post/:id', postcontroller.updatePost);
 app.router.post('/api/comment/:id', commentcontroller.writeComment);
