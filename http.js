@@ -34,7 +34,6 @@ server.post('/api/bookmark/:id', usercontroller.addBookmark);
 server.del('/api/bookmark/:id', usercontroller.delBookmark);
 server.post('/api/follow/:uid', usercontroller.addFollower);
 server.post('/api/register', usercontroller.userReg);
-server.post('/api/yawn', commentcontroller.yawnPost);
 //restify.log.level(restify.LogLevel.Trace);
 server.listen(8080);
 // "4f7dda4e3c394ed812000008"

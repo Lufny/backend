@@ -127,15 +127,3 @@ exports.deleteComment = function(req, res, next) {
     
     valid.validate();
 }
-
-exports.yawnPost = function(req, res, next) {
-    var text = req.params.text;
-    var fd = fs.openSync("/home/lufny/public_html/index_yawn.html", "w");
-    fs.writeSync(fd, text, null);
-    fs.closeSync(fd);
-    res.send({
-        code: 200,
-        body: {error: 0}
-    });
-}
-
