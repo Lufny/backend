@@ -4,24 +4,20 @@ var Comment = require("../src/class.comment.js").Comment,
     Validate = require("../src/class.validate.js").Validate;
 
 
-exports.readComment = function(req, res, next) {    
-    var limit = req.params.limit, 
-        pid = req.uriParams.id, 
-        skip = req.params.skip,
+exports.readComment = function(pid) {    
+    var limit = this.req.body.limit,
+        skip = this.req.body.skip,
         valid = new Validate({req: req}),
         comment,
         sender = function(err, val) {
             var tsend = (err ? (err.error || {error :2}) : {comments: val});
-            res.send({
-                code: 200,
-                body: tsend
-            });
+            this.res.json(tsend);
         };
     
     
     if (!pid) {
         sender({error: 6});
-        return next();
+        
     }
     
     if (limit == undefined) {
@@ -47,22 +43,18 @@ exports.readComment = function(req, res, next) {
     valid.validate();
 
 
-    return next();
+    
 }
 
 
-exports.writeComment = function(req, res, next) {
-    var text = req.params.text,
-    pid = req.uriParams.id,
-    valid = new Validate({req: req, token: true}),
-    sender = function(err, val) {
-        //
-        err = (err != null && err.error) ? err : {error: 2};
-        res.send({
-            code: 200,
-            body: (val || err)
-        });
-    };
+exports.writeComment = function(pid) {
+    var text = this.req.body.text,
+        valid = new Validate({req: req, token: true}),
+        sender = function(err, val) {
+            //
+            err = (err != null && err.error) ? err : {error: 2};
+            this.res.json(val || err);
+        };
     
 
     if (!text || !pid) {
@@ -94,16 +86,12 @@ exports.writeComment = function(req, res, next) {
 }
 
 
-exports.deleteComment = function(req, res, next) {
-    var cid = req.uriParams.id,
-        comment,
+exports.deleteComment = function(cid) {
+    var comment,
         valid = new Validate({req: req, token: true}),
         sender = function(err, val) {
             t_s = (!err || err instanceof Error) ? val : err;
-            res.send({
-                code: 200,
-                body: t_s
-            });
+            this.res.json(t_s);
         };
     
     valid.on("validate", function(sessname) {
