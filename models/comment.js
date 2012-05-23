@@ -7,7 +7,7 @@ var md = require('node-markdown').Markdown;
 
 
 var Comments = new Schema({
-	text: {type: String, get: util.postFilter},
+	text: {type: String},
 	author: {type: Schema.ObjectId, ref: "users"},
 	post: {type: Schema.ObjectId, ref: "posts"},
 	date: {type: Number} // if you are wondering why i use "number" here, just read post schema

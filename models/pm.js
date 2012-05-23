@@ -9,9 +9,10 @@ md = require('node-markdown').Markdown;
 
 
 var PM = new Schema({
-	from: {type: Schema.ObjectId, ref: "users",
-	to: {type: Schema.ObjectId, ref: "users",
+	from: {type: Schema.ObjectId, ref: "users"},
+	to: {type: Schema.ObjectId, ref: "users"},
 	text: {type: String, get: util.postFilter},
+	read: {type: Boolean}
 }, {strict: true});
 
 exports.PM = PM;
