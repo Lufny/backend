@@ -1,0 +1,11 @@
+---
+Thu May 17 2012 18:57
+ValidationError: Validator "regexp" failed for path rsurname
+    at Model.invalidate (/home/lufny/lufny_beta/node_modules/mongoose/lib/document.js:782:29)
+    at /home/lufny/lufny_beta/node_modules/mongoose/lib/document.js:763:23
+    at validate (/home/lufny/lufny_beta/node_modules/mongoose/lib/schematype.js:329:7)
+    at /home/lufny/lufny_beta/node_modules/mongoose/lib/schematype.js:345:9
+    at Array.forEach (native)
+    at SchemaString.doValidate (/home/lufny/lufny_beta/node_modules/mongoose/lib/schematype.js:333:19)
+    at Array.2 (/home/lufny/lufny_beta/node_modules/mongoose/lib/document.js:762:9)
+    at EventEmitter._tickCallback (node.js:192:40)

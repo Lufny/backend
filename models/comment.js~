@@ -1,0 +1,22 @@
+var mongoose = require('mongoose'),
+sha512 = require('jshashes').sha512,
+Schema = mongoose.Schema,
+ObjectId = mongoose.ObjectId,
+util = require('../util.js');
+var md = require('node-markdown').Markdown;
+
+function postFilter(text) { // Only md parsing, for now
+	if (text != undefined) { // Hack for some mongoose bug
+		text = md(text, true);
+		return text;
+	}
+}
+
+var Comments = new Schema({
+	text: {type: String, get: util.postFilter},
+	author: {type: Schema.ObjectId, ref: "users"},
+	post: {type: Schema.ObjectId, ref: "posts"},
+	date: {type: Number} // if you are wondering why i use "number" here, just read post schema
+}, {strict: true});
+
+exports.Comments = Comments;

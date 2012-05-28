@@ -1,0 +1,15 @@
+
+node.js:201
+        throw e; // process.nextTick error, or 'error' event on first tick
+              ^
+TypeError: Cannot read property 'notifyid' of null
+    at Promise.<anonymous> (/home/teknostats/lufny_beta/src/class.notification.js:90:13)
+    at Promise.<anonymous> (/home/teknostats/lufny_beta/node_modules/mongoose/lib/promise.js:120:8)
+    at Promise.<anonymous> (events.js:67:17)
+    at Promise.emit (/home/teknostats/lufny_beta/node_modules/mongoose/lib/promise.js:59:38)
+    at Promise.complete (/home/teknostats/lufny_beta/node_modules/mongoose/lib/promise.js:70:20)
+    at Promise.resolve (/home/teknostats/lufny_beta/node_modules/mongoose/lib/promise.js:138:15)
+    at Promise.<anonymous> (native)
+    at Promise.<anonymous> (/home/teknostats/lufny_beta/node_modules/mongoose/lib/promise.js:120:8)
+    at Promise.<anonymous> (events.js:67:17)
+    at Promise.emit (/home/teknostats/lufny_beta/node_modules/mongoose/lib/promise.js:59:38)

@@ -1,8 +1,0 @@
-0 - Everything ok
-1 - Missing parameters
-2 - DB Error
-3 - Access Denied
-4 - Token
-5 - Antiflood
-6 - Bad parameters
-7 - Resource not found
